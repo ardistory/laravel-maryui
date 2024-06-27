@@ -90,7 +90,8 @@ class Welcome extends Component
 
     public function proccessDetail(string $kode_toko)
     {
-        $this->detailIp = TokoLbk::query()->where('kode_toko', '=', $kode_toko)->get();
+
+        $this->detailIp = json_decode(TokoLbk::query()->where('kode_toko', '=', $kode_toko)->get(), true);
 
         $this->showDetailIp = true;
 
