@@ -98,7 +98,7 @@ class Welcome extends Component
         $this->success('Loaded', position: 'toast-top');
     }
 
-    #[Title('Welcome')]
+    #[Title('IP Address')]
     public function render()
     {
         return view('livewire.welcome', [

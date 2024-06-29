@@ -1,6 +1,6 @@
 <div>
     <!-- HEADER -->
-    <x-header title="IP ADDRESS" separator progress-indicator>
+    <x-header title="IP Address" separator progress-indicator>
         <x-slot:middle class="!justify-end">
             <x-input placeholder="Search..." wire:model.live.debounce="search" clearable icon="o-magnifying-glass" />
         </x-slot:middle>
@@ -12,8 +12,8 @@
     <div class="mb-5 flex gap-5">
         <x-stat title="Total" description="Store" value="{{ $totalStore }}" icon="phosphor.storefront"
             tooltip-bottom="Total Store" />
-        <x-stat title="Total" description="Users" value="{{ $totalUser }}" icon="phosphor.users-three"
-            tooltip-bottom="Total Users" />
+        {{-- <x-stat title="Total" description="Users" value="{{ $totalUser }}" icon="phosphor.users-three"
+            tooltip-bottom="Total Users" /> --}}
     </div>
 
     @if (count($listIp) > 0)
@@ -128,7 +128,7 @@
         @endforeach
 
         <x-slot:actions>
-            <x-button class="btn-primary" label="Ok" @click="$wire.showDetailIp = false" />
+            <x-button class="btn-primary btn-sm" label="Confirm" @click="$wire.showDetailIp = false" />
         </x-slot:actions>
     </x-modal>
 </div>
