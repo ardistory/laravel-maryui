@@ -28,13 +28,13 @@ class Welcome extends Component
         $this->reset();
         $this->resetPage();
 
-        $this->success('Filters cleared.', position: 'toast-bottom');
+        $this->success('Filters cleared.', position: 'toast-top');
     }
 
     // Delete action
     public function delete($kode_toko): void
     {
-        $this->warning("Will delete #$kode_toko", 'It is fake.', position: 'toast-bottom');
+        $this->warning("Will delete #$kode_toko", 'It is fake.', position: 'toast-top');
     }
 
     public function comingSoon(string $name): void
