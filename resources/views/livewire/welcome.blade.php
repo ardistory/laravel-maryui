@@ -1,6 +1,6 @@
 <div>
     <!-- HEADER -->
-    <x-header title="IP Address" separator progress-indicator>
+    <x-header title="Dashboard" separator progress-indicator>
         <x-slot:middle class="!justify-end">
             <x-input placeholder="Search..." wire:model.live.debounce="search" clearable icon="o-magnifying-glass" />
         </x-slot:middle>
@@ -49,10 +49,26 @@
 
     <x-card title="Users" subtitle="Our findings about you" class="mt-5">
         @foreach ($users as $user)
-            <x-list-item :item="$user">
+            <x-list-item :item="$user" value="name" avatar="picture">
                 <x-slot:avatar>
-                    <x-avatar :image="$user->avatar" :title="$user->name" :subtitle="$user->nik" class="!w-10 " />
+                    <div class="py-3">
+                        <div class="avatar">
+                            <div class="w-11 rounded-full">
+                                <img src="{{ asset('storage/' . $user->picture) }}" />
+                            </div>
+                        </div>
+                    </div>
                 </x-slot:avatar>
+                <x-slot:value>
+                    @if ($user->nik == '2015171331')
+                        {{ $user->name }}<x-icon name="phosphor.check" class="text-sky-500" />
+                    @else
+                        {{ $user->name }}
+                    @endif
+                </x-slot:value>
+                <x-slot:sub-value>
+                    {{ $user->nik }}
+                </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.chat-circle-dots" wire:click="comingSoon('{{ $user->name }}')" spinner />
                 </x-slot:actions>

@@ -39,7 +39,7 @@ class Welcome extends Component
 
     public function comingSoon(string $name): void
     {
-        $this->error("Coming Soon", "Can't chat with {$name}", position: 'toast-bottom');
+        $this->error("Coming Soon", "Can't chat with {$name}", position: 'toast-top');
     }
 
     public function updated($property): void
@@ -104,7 +104,7 @@ class Welcome extends Component
         $this->success('Loaded', position: 'toast-top');
     }
 
-    #[Title('IP Address')]
+    #[Title('Dashboard')]
     public function render()
     {
         return view('livewire.welcome', [

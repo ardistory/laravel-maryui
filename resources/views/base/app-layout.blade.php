@@ -55,7 +55,7 @@
 
             {{-- MENU --}}
             <x-menu activate-by-route>
-                <x-menu-item title="IP Address" icon="phosphor.network" link="{{ route('welcome') }}" />
+                <x-menu-item title="Dashboard" icon="phosphor.speedometer" link="{{ route('welcome') }}" />
                 <x-menu-sub title="Networking" icon="phosphor.wifi-high" open>
                     <x-menu-item title="Mac-Address" icon="phosphor.barcode" />
                     <x-menu-item title="Scan WDCP Y" icon="phosphor.file-magnifying-glass" />
