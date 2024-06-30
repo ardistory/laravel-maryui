@@ -28,9 +28,14 @@
 
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-button label="Messages" icon="o-envelope" link="###" class="btn-ghost btn-sm" responsive />
-            <x-button label="Notifications" icon="o-bell" link="###" class="btn-ghost btn-sm" responsive />
-            <x-theme-toggle class="btn btn-circle btn-ghost" />
+            <x-button icon="o-envelope" link="###" class="btn-circle relative" tooltip-bottom="Messages" responsive>
+                <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
+            </x-button>
+            <x-button icon="o-bell" link="###" class="btn-circle relative" tooltip-bottom="Notifications"
+                responsive>
+                <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
+            </x-button>
+            <x-theme-toggle class="btn btn-circle" />
         </x-slot:actions>
     </x-nav>
 
