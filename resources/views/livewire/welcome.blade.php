@@ -12,8 +12,8 @@
     <div class="mb-5 flex gap-5">
         <x-stat title="Total" description="Store" value="{{ $totalStore }}" icon="phosphor.storefront"
             tooltip-bottom="Total Store" />
-        {{-- <x-stat title="Total" description="Users" value="{{ $totalUser }}" icon="phosphor.users-three"
-            tooltip-bottom="Total Users" /> --}}
+        <x-stat title="Total" description="Users" value="{{ $totalUser }}" icon="phosphor.users-three"
+            tooltip-bottom="Total Users" />
     </div>
 
     @if (count($listIp) > 0)
@@ -46,6 +46,19 @@
             </x-slot:actions>
         </x-alert>
     @endif
+
+    <x-card title="Users" subtitle="Our findings about you" class="mt-5">
+        <div class="avatar-group -space-x-6 rtl:space-x-reverse">
+            @foreach ($users as $user)
+                <div class="avatar">
+                    <div class="w-12">
+                        <img src="{{ asset('storage/' . $user->picture) }}" />
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </x-card>
+
     <!-- FILTER DRAWER -->
     <x-drawer wire:model="drawer" title="Filters" right separator with-close-button class="lg:w-1/3">
         <x-input placeholder="Search..." wire:model.live.debounce="search" icon="o-magnifying-glass"

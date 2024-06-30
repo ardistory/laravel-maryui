@@ -22,7 +22,8 @@
             </label>
 
             {{-- Brand --}}
-            <x-button label="Laravel" icon-right="phosphor.seal-check" />
+            <x-button label="Laravel" badge="v{{ Illuminate\Foundation\Application::VERSION }}"
+                badge-classes="badge-warning" />
         </x-slot:brand>
 
         {{-- Right side actions --}}
@@ -68,6 +69,38 @@
         </x-slot:content>
     </x-main>
 
+    <footer class="footer bg-base-200 text-base-content p-10">
+        <nav>
+            <h6 class="footer-title">Services</h6>
+            <a class="link link-hover">Branding</a>
+            <a class="link link-hover">Design</a>
+            <a class="link link-hover">Marketing</a>
+            <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Company</h6>
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Jobs</a>
+            <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Legal</h6>
+            <a class="link link-hover">Terms of use</a>
+            <a class="link link-hover">Privacy policy</a>
+            <a class="link link-hover">Cookie policy</a>
+        </nav>
+    </footer>
+    <footer class="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+        <aside class="grid-flow-col items-center">
+            <x-icon name="phosphor.brain" class="w-9 h-9 text-pink-500" />
+            <p>
+                EDP Lebak
+                <br />
+                {{ now() }}
+            </p>
+        </aside>
+    </footer>
     {{-- Toast --}}
     <x-toast />
 </body>

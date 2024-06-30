@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\TokoLbk;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -106,7 +107,8 @@ class Welcome extends Component
             'headers' => $this->headers(),
             'headersDetail' => $this->headersDetail(),
             'totalStore' => $this->totalStore(),
-            'totalUser' => $this->totalUser()
+            'totalUser' => $this->totalUser(),
+            'users' => User::inRandomOrder()->get()
         ]);
     }
 }
