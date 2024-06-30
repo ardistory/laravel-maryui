@@ -97,7 +97,7 @@
                     {{ $ip['nama_toko'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -108,7 +108,8 @@
                     {{ $ip['ip_gateway'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -119,7 +120,8 @@
                     {{ $ip['ip_induk'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -130,7 +132,8 @@
                     {{ $ip['ip_anak'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -141,7 +144,8 @@
                     {{ $ip['ip_stb'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -152,7 +156,8 @@
                     {{ $ip['ip_wdcp'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" spinner />
+                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
+                    <x-button icon="phosphor.copy" tooltip="Copy" spinner />
                 </x-slot:actions>
             </x-list-item>
         @endforeach
