@@ -48,15 +48,16 @@
     @endif
 
     <x-card title="Users" subtitle="Our findings about you" class="mt-5">
-        <div class="avatar-group -space-x-6 rtl:space-x-reverse">
-            @foreach ($users as $user)
-                <div class="avatar">
-                    <div class="w-12">
-                        <img src="{{ asset('storage/' . $user->picture) }}" />
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        @foreach ($users as $user)
+            <x-list-item :item="$user">
+                <x-slot:avatar>
+                    <x-avatar :image="$user->avatar" :title="$user->name" :subtitle="$user->nik" class="!w-10 " />
+                </x-slot:avatar>
+                <x-slot:actions>
+                    <x-button icon="phosphor.chat-circle-dots" wire:click="comingSoon('{{ $user->name }}')" spinner />
+                </x-slot:actions>
+            </x-list-item>
+        @endforeach
     </x-card>
 
     <!-- FILTER DRAWER -->

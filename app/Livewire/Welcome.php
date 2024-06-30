@@ -37,6 +37,11 @@ class Welcome extends Component
         $this->warning("Will delete #$kode_toko", 'It is fake.', position: 'toast-bottom');
     }
 
+    public function comingSoon(string $name): void
+    {
+        $this->error("Coming Soon", "Can't chat with {$name}", position: 'toast-bottom');
+    }
+
     public function updated($property): void
     {
         if (!is_array($property) && $property != "") {
