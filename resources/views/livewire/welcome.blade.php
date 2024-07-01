@@ -17,7 +17,7 @@
     </div>
 
     @if (count($listIp) > 0)
-        <x-card>
+        <x-card title="Data Stores">
             <x-table :headers="$headers" :rows="$listIp" :sort-by="$sortBy"
                 @row-click="$wire.proccessDetail($event.detail.kode_toko)" with-pagination>
                 @scope('cell_id', $list)
@@ -47,7 +47,7 @@
         </x-alert>
     @endif
 
-    <x-card title="Users" subtitle="Our findings about you" class="mt-5">
+    <x-card title="Users" class="mt-5">
         @foreach ($users as $user)
             <x-list-item :item="$user" value="name" avatar="picture">
                 <x-slot:avatar>
@@ -61,7 +61,7 @@
                 </x-slot:avatar>
                 <x-slot:value>
                     @if ($user->nik == '2015171331')
-                        {{ $user->name }}<x-icon name="phosphor.check" class="text-sky-500" />
+                        {{ $user->name }}<x-icon name="phosphor.seal-check-fill" class="text-sky-500" />
                     @else
                         {{ $user->name }}
                     @endif
