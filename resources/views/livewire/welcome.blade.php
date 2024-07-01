@@ -87,6 +87,7 @@
         </x-slot:actions>
     </x-drawer>
 
+    <!-- DETAIL IP DRAWER -->
     <x-drawer wire:model="showDetailIp" class="w-11/12 lg:w-1/3">
         @foreach ($detailIp as $ip)
             <x-list-item :item="$ip">
@@ -97,7 +98,8 @@
                     {{ $ip['nama_toko'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['kode_toko'] . ' - ' . $ip['nama_toko'] }}')"
+                    <x-button class="copyjs"
+                        wire:click="copySuccess('{{ $ip['kode_toko'] . ' - ' . $ip['nama_toko'] }}')"
                         icon="phosphor.copy" tooltip="Copy" spinner
                         data-clipboard-text="{{ $ip['kode_toko'] . ' - ' . $ip['nama_toko'] }}" />
                 </x-slot:actions>
@@ -110,8 +112,10 @@
                     {{ $ip['ip_gateway'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_gateway'] }}')" icon="phosphor.copy"
+                    <x-button label="{{ $resultPing['ip_gateway'] ?? '' }}"
+                        wire:click="pingIp('{{ $ip['ip_gateway'] }}','ip_gateway')" icon="phosphor.cell-signal-full"
+                        tooltip="Ping" spinner />
+                    <x-button class="copyjs" wire:click="copySuccess('{{ $ip['ip_gateway'] }}')" icon="phosphor.copy"
                         tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_gateway'] }}" />
                 </x-slot:actions>
             </x-list-item>
@@ -123,8 +127,10 @@
                     {{ $ip['ip_induk'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_induk'] }}')" icon="phosphor.copy"
+                    <x-button label="{{ $resultPing['ip_induk'] ?? '' }}"
+                        wire:click="pingIp('{{ $ip['ip_induk'] }}','ip_induk')" icon="phosphor.cell-signal-full"
+                        tooltip="Ping" spinner />
+                    <x-button class="copyjs" wire:click="copySuccess('{{ $ip['ip_induk'] }}')" icon="phosphor.copy"
                         tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_induk'] }}" />
                 </x-slot:actions>
             </x-list-item>
@@ -136,8 +142,10 @@
                     {{ $ip['ip_anak'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_anak'] }}')" icon="phosphor.copy"
+                    <x-button label="{{ $resultPing['ip_anak'] ?? '' }}"
+                        wire:click="pingIp('{{ $ip['ip_anak'] }}','ip_anak')" icon="phosphor.cell-signal-full"
+                        tooltip="Ping" spinner />
+                    <x-button class="copyjs" wire:click="copySuccess('{{ $ip['ip_anak'] }}')" icon="phosphor.copy"
                         tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_anak'] }}" />
                 </x-slot:actions>
             </x-list-item>
@@ -149,9 +157,11 @@
                     {{ $ip['ip_stb'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_stb'] }}')" icon="phosphor.copy" tooltip="Copy"
-                        spinner data-clipboard-text="{{ $ip['ip_stb'] }}" />
+                    <x-button label="{{ $resultPing['ip_stb'] ?? '' }}"
+                        wire:click="pingIp('{{ $ip['ip_stb'] }}','ip_stb')" icon="phosphor.cell-signal-full"
+                        tooltip="Ping" spinner />
+                    <x-button class="copyjs" wire:click="copySuccess('{{ $ip['ip_stb'] }}')" icon="phosphor.copy"
+                        tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_stb'] }}" />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -162,8 +172,10 @@
                     {{ $ip['ip_wdcp'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_wdcp'] }}')" icon="phosphor.copy"
+                    <x-button label="{{ $resultPing['ip_wdcp'] ?? '' }}"
+                        wire:click="pingIp('{{ $ip['ip_wdcp'] }}','ip_wdcp')" icon="phosphor.cell-signal-full"
+                        tooltip="Ping" spinner />
+                    <x-button class="copyjs" wire:click="copySuccess('{{ $ip['ip_wdcp'] }}')" icon="phosphor.copy"
                         tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_wdcp'] }}" />
                 </x-slot:actions>
             </x-list-item>

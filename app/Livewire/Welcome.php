@@ -20,6 +20,7 @@ class Welcome extends Component
     public bool $drawer = false;
     public bool $showDetailIp = false;
     public mixed $detailIp = [];
+    public array $resultPing = [];
     public array $sortBy = ['column' => 'kode_toko', 'direction' => 'asc'];
 
     // Clear filters
@@ -102,6 +103,17 @@ class Welcome extends Component
         $this->showDetailIp = true;
 
         $this->success('Loaded', position: 'toast-top');
+    }
+
+    public function pingIp($host, $key)
+    {
+        $ttl = 128;
+        $timeout = 5;
+        $ping = new \JJG\Ping($host, $ttl, $timeout);
+
+        $result = strval($ping->ping());
+
+        ($result) ? $this->resultPing[$key] = $result . 'ms' : $this->resultPing[$key] = 'Down';
     }
 
     public function copySuccess(string $data)
