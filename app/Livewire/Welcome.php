@@ -113,7 +113,13 @@ class Welcome extends Component
 
         $result = strval($ping->ping());
 
-        ($result) ? $this->resultPing[$key] = $result . 'ms' : $this->resultPing[$key] = 'Down';
+        if ($result) {
+            $this->resultPing[$key] = $result . 'ms';
+            $this->success($this->resultPing[$key]);
+        } else {
+            $this->resultPing[$key] = 'Down';
+            $this->error($this->resultPing[$key]);
+        }
     }
 
     public function copySuccess(string $data)
