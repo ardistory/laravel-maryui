@@ -97,7 +97,8 @@
                     {{ $ip['nama_toko'] }}
                 </x-slot:sub-value>
                 <x-slot:actions>
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['kode_toko'] . ' - ' . $ip['nama_toko'] }}')"
+                        icon="phosphor.copy" tooltip="Copy" spinner
                         data-clipboard-text="{{ $ip['kode_toko'] . ' - ' . $ip['nama_toko'] }}" />
                 </x-slot:actions>
             </x-list-item>

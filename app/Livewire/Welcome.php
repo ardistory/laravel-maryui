@@ -106,7 +106,7 @@ class Welcome extends Component
 
     public function copySuccess(string $data)
     {
-        $this->info('Copied', 'Copy ' . $data, 'toast-bottom toast-end');
+        $this->info($data, position: 'toast-bottom toast-end', icon: 'phosphor.copy');
     }
 
     #[Title('Dashboard')]
