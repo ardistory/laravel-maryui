@@ -5,7 +5,7 @@
             <x-input placeholder="Search..." wire:model.live.debounce="search" clearable icon="o-magnifying-glass" />
         </x-slot:middle>
         <x-slot:actions>
-            <x-button label="Filters" @click="$wire.drawer = true" responsive icon="o-funnel" class="btn-primary" />
+            <x-button label="Filters" x-on:click="$wire.drawer = true" responsive icon="o-funnel" class="btn-primary" />
         </x-slot:actions>
     </x-header>
 
@@ -83,11 +83,11 @@
 
         <x-slot:actions>
             <x-button label="Reset" icon="o-x-mark" wire:click="clear" spinner />
-            <x-button label="Done" icon="o-check" class="btn-primary" @click="$wire.drawer = false" />
+            <x-button label="Done" icon="o-check" class="btn-primary" x-on:click="$wire.drawer = false" />
         </x-slot:actions>
     </x-drawer>
 
-    <x-modal wire:model="showDetailIp" class="backdrop-blur">
+    <x-drawer wire:model="showDetailIp" class="w-11/12 lg:w-1/3">
         @foreach ($detailIp as $ip)
             <x-list-item :item="$ip">
                 <x-slot:value>
@@ -110,8 +110,8 @@
                 </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner
-                        data-clipboard-text="{{ $ip['ip_gateway'] }}" />
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_gateway'] }}')" icon="phosphor.copy"
+                        tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_gateway'] }}" />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -123,8 +123,8 @@
                 </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner
-                        data-clipboard-text="{{ $ip['ip_induk'] }}" />
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_induk'] }}')" icon="phosphor.copy"
+                        tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_induk'] }}" />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -136,7 +136,8 @@
                 </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_anak'] }}" />
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_anak'] }}')" icon="phosphor.copy"
+                        tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_anak'] }}" />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -148,7 +149,8 @@
                 </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_stb'] }}" />
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_stb'] }}')" icon="phosphor.copy" tooltip="Copy"
+                        spinner data-clipboard-text="{{ $ip['ip_stb'] }}" />
                 </x-slot:actions>
             </x-list-item>
             <x-list-item :item="$ip">
@@ -160,13 +162,10 @@
                 </x-slot:sub-value>
                 <x-slot:actions>
                     <x-button icon="phosphor.cell-signal-full" tooltip="Ping" spinner />
-                    <x-button icon="phosphor.copy" tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_wdcp'] }}" />
+                    <x-button x-on:click="$wire.copySuccess('{{ $ip['ip_wdcp'] }}')" icon="phosphor.copy"
+                        tooltip="Copy" spinner data-clipboard-text="{{ $ip['ip_wdcp'] }}" />
                 </x-slot:actions>
             </x-list-item>
         @endforeach
-
-        <x-slot:actions>
-            <x-button class="btn-primary btn-sm" label="Confirm" @click="$wire.showDetailIp = false" />
-        </x-slot:actions>
-    </x-modal>
+    </x-drawer>
 </div>

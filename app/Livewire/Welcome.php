@@ -104,6 +104,11 @@ class Welcome extends Component
         $this->success('Loaded', position: 'toast-top');
     }
 
+    public function copySuccess(string $data)
+    {
+        $this->info('Copied', 'Copy ' . $data, 'toast-bottom toast-end');
+    }
+
     #[Title('Dashboard')]
     public function render()
     {
