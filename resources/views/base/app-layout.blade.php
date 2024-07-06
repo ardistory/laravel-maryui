@@ -21,20 +21,20 @@
             </label>
 
             {{-- Brand --}}
-            <x-button label="Laravel" badge="v{{ Illuminate\Foundation\Application::VERSION }}"
+            <x-button class="btn-sm" label="Laravel" badge="v{{ Illuminate\Foundation\Application::VERSION }}"
                 badge-classes="badge-warning" />
         </x-slot:brand>
-
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-button icon="o-envelope" link="###" class="btn-circle relative" tooltip-bottom="Messages" responsive>
+            <x-button icon="o-envelope" link="###" class="relative btn-circle btn-sm  btn-ghost"
+                tooltip-bottom="Messages" responsive>
                 <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
             </x-button>
-            <x-button icon="o-bell" link="###" class="btn-circle relative" tooltip-bottom="Notifications"
-                responsive>
+            <x-button icon="o-bell" link="###" class="relative btn-circle btn-sm  btn-ghost"
+                tooltip-bottom="Notifications" responsive>
                 <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
             </x-button>
-            <x-theme-toggle class="btn btn-circle" />
+            <x-theme-toggle class="btn-circle btn-sm btn-ghost" />
         </x-slot:actions>
     </x-nav>
 
