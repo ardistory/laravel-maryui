@@ -20,6 +20,7 @@
         <x-card title="Data Stores">
             <x-table :headers="$headers" :rows="$listIp" :sort-by="$sortBy"
                 @row-click="$wire.proccessDetail($event.detail.kode_toko)" with-pagination>
+
                 @scope('cell_id', $list)
                     {{ $loop->index + 1 }}
                 @endscope
@@ -30,11 +31,6 @@
                     @else
                         <p class="bg-red-500 text-white inline-block px-2">?</p>
                     @endif
-                @endscope
-
-                @scope('actions', $list)
-                    <x-button icon="phosphor.eye" wire:click='proccessDetail("{{ $list->kode_toko }}")' spinner
-                        class="btn-ghost btn-sm" />
                 @endscope
             </x-table>
         </x-card>

@@ -21,7 +21,7 @@ class Welcome extends Component
     public bool $showDetailIp = false;
     public mixed $detailIp = [];
     public array $resultPing = [];
-    public array $sortBy = ['column' => 'kode_toko', 'direction' => 'asc'];
+    public array $sortBy = ['column' => 'nama_toko', 'direction' => 'asc'];
 
     // Clear filters
     public function clear(): void
@@ -97,6 +97,7 @@ class Welcome extends Component
 
     public function proccessDetail(string $kode_toko)
     {
+        $this->reset('resultPing');
 
         $this->detailIp = json_decode(TokoLbk::query()->where('kode_toko', '=', $kode_toko)->get(), true);
 
@@ -108,7 +109,7 @@ class Welcome extends Component
     public function pingIp($host, $key)
     {
         $ttl = 128;
-        $timeout = 5;
+        $timeout = 2;
         $ping = new \JJG\Ping($host, $ttl, $timeout);
 
         $result = strval($ping->ping());

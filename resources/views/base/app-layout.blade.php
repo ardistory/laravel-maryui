@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ isset($title) ? config('app.name') . ' | ' . $title : config('app.name') }}</title>
+    <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -62,7 +62,7 @@
             <x-menu activate-by-route>
                 <x-menu-item title="Dashboard" icon="phosphor.speedometer" link="{{ route('welcome') }}" />
                 <x-menu-sub title="Networking" icon="phosphor.wifi-high" open>
-                    <x-menu-item title="Mac-Address" icon="phosphor.barcode" />
+                    <x-menu-item title="Mac-Address" icon="phosphor.barcode" link="{{ route('macaddress') }}" />
                     <x-menu-item title="Scan WDCP Y" icon="phosphor.file-magnifying-glass" />
                 </x-menu-sub>
             </x-menu>
