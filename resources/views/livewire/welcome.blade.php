@@ -12,8 +12,6 @@
     <div class="mb-5 flex gap-5">
         <x-stat title="Total Store" value="{{ $totalStore }}" icon="phosphor.storefront"
             tooltip-bottom="Total Store" />
-        <x-stat title="Total Users" value="{{ $totalUser }}" icon="phosphor.users-three"
-            tooltip-bottom="Total Users" />
     </div>
 
     @if (count($listIp) > 0)
@@ -42,35 +40,6 @@
             </x-slot:actions>
         </x-alert>
     @endif
-
-    <x-card title="Users" class="mt-5">
-        @foreach ($users as $user)
-            <x-list-item :item="$user" value="name" avatar="picture">
-                <x-slot:avatar>
-                    <div class="py-3">
-                        <div class="avatar">
-                            <div class="w-11 rounded-full">
-                                <img src="{{ asset('storage/' . $user->picture) }}" />
-                            </div>
-                        </div>
-                    </div>
-                </x-slot:avatar>
-                <x-slot:value>
-                    @if ($user->nik == '2015171331')
-                        {{ $user->name }}<x-icon name="phosphor.seal-check-fill" class="text-sky-500" />
-                    @else
-                        {{ $user->name }}
-                    @endif
-                </x-slot:value>
-                <x-slot:sub-value>
-                    {{ $user->nik }}
-                </x-slot:sub-value>
-                <x-slot:actions>
-                    <x-button icon="phosphor.chat-circle-dots" wire:click="comingSoon('{{ $user->name }}')" spinner />
-                </x-slot:actions>
-            </x-list-item>
-        @endforeach
-    </x-card>
 
     <!-- FILTER DRAWER -->
     <x-drawer wire:model="drawer" title="Filters" right separator with-close-button class="lg:w-1/3">

@@ -79,11 +79,6 @@ class Welcome extends Component
         return count(TokoLbk::all());
     }
 
-    public function totalUser(): int
-    {
-        return count(User::all());
-    }
-
     public function listIp()
     {
         return TokoLbk::query()
@@ -135,9 +130,7 @@ class Welcome extends Component
             'listIp' => $this->listIp(),
             'headers' => $this->headers(),
             'headersDetail' => $this->headersDetail(),
-            'totalStore' => $this->totalStore(),
-            'totalUser' => $this->totalUser(),
-            'users' => User::inRandomOrder()->get()
+            'totalStore' => $this->totalStore()
         ]);
     }
 }
