@@ -120,6 +120,25 @@ class MacAddress extends Component
         ];
     }
 
+    public function updatedSelectedStore()
+    {
+        $this->dispatch('event-send-ip', ip_wdcp: $this->selectedStore);
+    }
+
+    public function getDefaultAuthentication()
+    {
+        $routerOs = App::make(RouterosAPI::class);
+
+        if ($routerOs->connect($this->selectedStore, env('ROS_USERNAME'), env('ROS_PASSWORD'))) {
+            $routerOs->comm('/interface/wireless/access-list/add', [
+                'mac-address' => $this->mac,
+                'comment' => $this->comment
+            ]);
+        } else {
+            $this->error('Connection to router is failed!');
+        }
+    }
+
     #[Title('Mac-Address')]
     public function render()
     {
