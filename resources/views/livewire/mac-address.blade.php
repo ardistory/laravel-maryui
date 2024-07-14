@@ -12,8 +12,8 @@
                 </x-slot:actions>
             </x-form>
         </x-card>
-        <x-card title="{{ $isLogin ? 'Sudah Login' : 'Belum Login' }}" class="col-span-6">
-
+        <x-card class="col-span-6 {{ !$isLogin ? 'hidden' : '' }}">
+            {{-- <x-select label="Master user" icon="o-user" :options="$users" wire:model="selectedUser" inline /> --}}
         </x-card>
     </div>
 </div>
