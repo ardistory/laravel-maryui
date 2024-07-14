@@ -6,6 +6,7 @@ use App\Api\RouterosAPI;
 use App\Models\TokoLbk;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\App;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -68,6 +69,13 @@ class MacAddress extends Component
 
     }
 
+    public function resetForm(): void
+    {
+        $this->reset(['selectedStore', 'mac', 'comment']);
+
+        $this->info('The form has been reset!');
+    }
+
     public function listStores(): array
     {
         $tokoLbk = TokoLbk::query()->get(['kode_toko', 'nama_toko', 'ip_wdcp']);
@@ -98,12 +106,27 @@ class MacAddress extends Component
         ];
     }
 
+    public function setDefault(): array
+    {
+        return [
+            [
+                'label' => 'True',
+                'value' => true
+            ],
+            [
+                'label' => 'False',
+                'value' => false
+            ]
+        ];
+    }
+
     #[Title('Mac-Address')]
     public function render()
     {
         return view('livewire.mac-address', [
             'listStores' => $this->listStores(),
-            'selectIdentity' => $this->selectIdentity()
+            'selectIdentity' => $this->selectIdentity(),
+            'setDefault' => $this->setDefault()
         ]);
     }
 }

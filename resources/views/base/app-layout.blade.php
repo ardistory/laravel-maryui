@@ -26,14 +26,14 @@
         </x-slot:brand>
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-button icon="o-envelope" link="###" class="relative btn-circle btn-sm  btn-ghost"
+            {{-- <x-button icon="o-envelope" link="###" class="relative btn-circle btn-sm  btn-ghost"
                 tooltip-bottom="Messages" responsive>
                 <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
             </x-button>
             <x-button icon="o-bell" link="###" class="relative btn-circle btn-sm  btn-ghost"
                 tooltip-bottom="Notifications" responsive>
                 <x-badge value="1" class="badge-error absolute -right-2 -top-2" />
-            </x-button>
+            </x-button> --}}
             <x-theme-toggle class="btn-circle btn-sm btn-ghost" />
         </x-slot:actions>
     </x-nav>
